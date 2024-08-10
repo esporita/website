@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  :root {
+    --accent: 51, 102, 204;
+    --accent-light: 102, 140, 217;
+    --accent-dark: 38, 77, 153;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent-light)),
+      rgb(var(--accent-dark)) 50%,
+      grey 100%
+    );
+  }
+  html {
+    font-family: "Liberation Serif";
+    background: #13151a;
+  }
+  body {
+    background-image: url("/esporita.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
